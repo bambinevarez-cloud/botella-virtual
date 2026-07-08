@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 Cartas en una Botella Virtual</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Pantalla de inicio -->
+    <div id="startScreen" class="screen active">
+        <div class="container-start">
+            <div class="floating-hearts"></div>
+            <h1>🌊 Cartas en una Botella Virtual</h1>
+            <p class="subtitle">Una botella llegó a la orilla del mar...</p>
+            <div class="days-together">
+                <p id="daysText">Días juntos: <span id="dayCount">0</span> 💕</p>
+            </div>
+            <button class="btn-start" onclick="startJourney()">
+                <span>Lanzar la botella 🍾</span>
+            </button>
+            <div class="info-start">
+                <p>Resuelve acertijos para abrir el mensaje secreto</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla del mar -->
+    <div id="oceanScreen" class="screen">
+        <canvas id="oceanCanvas"></canvas>
+        <div class="bottle-container">
+            <div class="bottle" id="bottle">
+                <div class="bottle-top"></div>
+                <div class="bottle-body">
+                    <div class="bottle-shine"></div>
+                </div>
+                <div class="bottle-bottom"></div>
+            </div>
+        </div>
+        <p class="instruction">Haz click en la botella para recogerla 🍾</p>
+    </div>
+
+    <!-- Pantalla de acertijo -->
+    <div id="riddleScreen" class="screen">
+        <div class="riddle-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-text" id="progressText">Acertijo 1 de 5</p>
+            
+            <h2>🔐 La botella está cerrada</h2>
+            <p class="riddle-text" id="riddleText"></p>
+            
+            <div class="riddle-options" id="riddleOptions"></div>
+            
+            <p class="hint" id="hint"></p>
+            <p class="attempts" id="attempts"></p>
+        </div>
+    </div>
+
+    <!-- Pantalla de mensaje final -->
+    <div id="messageScreen" class="screen">
+        <div class="message-container">
+            <div class="floating-hearts-message"></div>
+            <h2>💌 Tu mensaje secreto</h2>
+            
+            <div class="letter-content" id="letterContent"></div>
+            
+            <div class="message-actions">
+                <button class="btn-share" onclick="shareMessage()">
+                    <i class="fas fa-share-alt"></i> Compartir
+                </button>
+                <button class="btn-download-qr" onclick="generateQR()">
+                    <i class="fas fa-qrcode"></i> Generar QR
+                </button>
+                <button class="btn-reset" onclick="resetGame()">
+                    <i class="fas fa-redo"></i> Volver a comenzar
+                </button>
+            </div>
+            
+            <div id="qrContainer" class="qr-container"></div>
+        </div>
+    </div>
+
+    <!-- Pantalla de puntuación -->
+    <div id="scoreScreen" class="screen">
+        <div class="score-container">
+            <h2>🎉 ¡Lo hiciste!</h2>
+            <div class="score-box">
+                <p class="score-label">Tu puntuación:</p>
+                <p class="score-value" id="finalScore">0</p>
+                <p class="score-time" id="finalTime">Tiempo: 0s</p>
+            </div>
+            <button class="btn-continue" onclick="goToMessage()">
+                Ver tu mensaje 💌
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal de localStorage -->
+    <div id="loadModal" class="modal">
+        <div class="modal-content">
+            <h3>¿Cargar progreso anterior?</h3>
+            <p id="modalMessage"></p>
+            <div class="modal-buttons">
+                <button class="btn-modal" onclick="loadProgress()">Cargar</button>
+                <button class="btn-modal btn-modal-secondary" onclick="startNewGame()">Nuevo juego</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="bgMusic" loop>
+        <source src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==" type="audio/wav">
+    </audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode.js/1.4.4/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
