@@ -38,7 +38,7 @@ const riddles = [
         question: "¿Cuál es mi color favorito?",
         options: ["Azul", "Negro", "Naranja", "Blanco"],
         correct: 2,
-        hint: "Es un color cálido y vibrante que te me gusta"
+        hint: "Es un color cálido y vibrante que me gusta"
     }
 ];
 
