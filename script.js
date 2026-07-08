@@ -1,68 +1,82 @@
 // ===== CONFIGURACIÓN PERSONALIZADA =====
 const CONFIG = {
     userNames: {
-        user: "Tu amor", // Tu nombre
+        user: "Bambi", // Tu nombre
         recipient: "Mi amor" // Nombre de tu novia
     },
-    relationshipStartDate: new Date('2026-07-08'), // Fecha que le pediste ser tu novia
-    acertijosIntento: 3, // Intentos por acertijo
+    relationshipStartDate: new Date('2026-07-01'), // Fecha que le pediste ser novia
+    acertijosIntento: 3,
 };
 
-// ===== ACERTIJOS PERSONALIZADOS =====
+// ===== ACERTIJOS PERSONALIZADOS CON TU HISTORIA REAL =====
 const riddles = [
     {
-        question: "¿En qué mes nos conocimos?",
+        question: "¿En qué mes nos conocimos en el trabajo?",
         options: ["Febrero", "Marzo", "Abril", "Mayo"],
         correct: 1, // Marzo
-        hint: "Fue el tercer mes del año"
+        hint: "Es el tercer mes del año"
     },
     {
-        question: "¿Cuál es nuestro lugar donde pasamos más tiempo juntos?",
-        options: ["Trabajo", "Parque", "Casa", "Cine"],
-        correct: 0, // Trabajo
-        hint: "Donde compartimos muchas horas cada día"
+        question: "¿En qué mes empezamos a convivir más y fue nuestro primer beso?",
+        options: ["Marzo", "Abril", "Mayo", "Junio"],
+        correct: 1, // Abril - finales
+        hint: "Fue después del mes de conocernos"
     },
     {
-        question: "¿Dónde fue nuestro primer beso?",
-        options: ["En el parque", "En el cine", "En mi casa", "En la calle"],
-        correct: 0, // Camino al parque / En el parque
-        hint: "Fue en un lugar verde y especial"
+        question: "¿Cuál fue nuestro primer lugar especial fuera del trabajo?",
+        options: ["Cafetería", "Cine", "Parque", "Bolos"],
+        correct: 0, // Cafetería en mayo
+        hint: "Un lugar para tomar algo y charlar"
+    },
+    {
+        question: "¿En qué mes fuiste a mi casa por primera vez y empezamos a vernos más?",
+        options: ["Marzo", "Abril", "Mayo", "Junio"],
+        correct: 2, // Mayo
+        hint: "Fue el quinto mes del año, mes especial con salidas al cine, parque y bolos"
     },
     {
         question: "¿Cuál es mi color favorito?",
         options: ["Azul", "Negro", "Naranja", "Blanco"],
-        correct: 2, // Naranja (lo mencionó como favorito)
-        hint: "Es un color cálido y vibrante"
-    },
-    {
-        question: "¿Cuándo empezamos a llevar esto más en serio?",
-        options: ["Marzo", "Abril", "Mayo", "Junio"],
-        correct: 1, // Abril
-        hint: "Fue el mes siguiente a conocernos"
+        correct: 2, // Naranja
+        hint: "Es un color cálido y vibrante que te caracteriza"
     }
 ];
 
 // ===== MENSAJE SECRETO PERSONALIZADO =====
-const secretMessage = `Para mi amor:
+const secretMessage = `Para ti, mi amor:
 
-Han sido 8 días oficialmente siendo tu novia, pero siento que te conozco 
-desde mucho antes. Recuerdo perfectamente el día en marzo cuando nos conocimos,
-y luego en abril cuando empezamos a vernos más seguido.
+Aún no puedo creer que sea real todo lo que hemos vivido juntos en estos meses.
+Todo comenzó en marzo en el trabajo, cuando empezamos a hablarnos, 
+aunque fueron esas primeras semanas con conversaciones cortas pero significativas.
 
-Cada momento contigo es especial. Ya sea en el trabajo, en el parque, 
-o simplemente en mi casa contigo, cada segundo cuenta.
+Luego llegó abril, y todo cambió. Empezamos a convivir más, 
+a conocernos realmente, y a finales de ese mes... ese primer beso. 
+No lo olvidaré jamás. Fue el momento en que supe que eras especial, 
+que querías quedarte en mi vida.
 
-No olvido nuestro primer beso de camino al parque. Fue mágico.
+En mayo todo fue diferente. Fuimos a la cafetería, al cine, al parque, 
+a los bolos por mi cumpleaños. Luego fuiste a mi casa y sentí que las cosas 
+se estaban volviendo más serias, más reales, más hermosas.
 
-Quiero que sepas que eres importante para mí.
-Tu compañía ilumina mis días, y tu sonrisa es lo mejor que puede pasarme.
+Junio fue el mes en que decidimos estar juntos en todos lados. 
+Yo iba a tu casa, tú venías a la mía. Empezamos a construir algo bonito, 
+a convivir más allá del trabajo. Esos días fueron los mejores.
 
-Aunque apenas llevamos 8 días oficialmente, siento que ya eres 
-parte fundamental de mi vida.
+Y entonces llegó el 1 de julio... ese día en que me atreví a pedirte 
+ser mi novia oficialmente. Ese día en que decidí que no quería imaginar 
+mi vida sin ti al lado.
 
-Te quiero mucho.
+Han pasado solo unos días como novios, pero siento que te conozco desde siempre.
+Tu risa, tu forma de ser, la manera en que me miras, tu apoyo incondicional...
+Todo en ti me enamora cada día más.
+
+Eres mi persona favorita en el mundo. 
+Eres lo mejor que me ha pasado.
+
+Te amo con todo mi corazón.
+
 Con todo mi amor,
-Tu amor 💕`;
+Bambi 💕`;
 
 // ===== VARIABLES GLOBALES =====
 let currentRiddleIndex = 0;
@@ -78,13 +92,9 @@ let gameState = {
 
 // ===== INICIALIZACIÓN =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Calcular días juntos
     calculateDaysTogether();
-    
-    // Crear corazones flotantes
     createFloatingHearts();
     
-    // Listener botella
     const bottle = document.getElementById('bottle');
     if (bottle) {
         bottle.addEventListener('click', function() {
@@ -98,10 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Reproducir música de fondo
     playBackgroundMusic();
-    
-    // Verificar si hay progreso guardado
     checkSavedProgress();
 });
 
@@ -135,7 +142,6 @@ function createFloatingHearts() {
 
 // ===== AUDIO =====
 function playSound(type) {
-    // Crear sonidos con Web Audio API
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
     
     const sounds = {
@@ -189,7 +195,6 @@ function playBackgroundMusic() {
     const bgMusic = document.getElementById('bgMusic');
     if (bgMusic) {
         bgMusic.volume = 0.3;
-        // bgMusic.play().catch(() => {}); // Silenciar en navegadores sin permiso
     }
 }
 
@@ -223,7 +228,6 @@ function drawOcean() {
     let time = 0;
     let particles = [];
     
-    // Crear partículas de agua
     for (let i = 0; i < 50; i++) {
         particles.push({
             x: Math.random() * canvas.width,
@@ -236,7 +240,6 @@ function drawOcean() {
     }
     
     function animate() {
-        // Gradiente de fondo
         const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
         gradient.addColorStop(0, '#87CEEB');
         gradient.addColorStop(0.5, '#E0F6FF');
@@ -244,7 +247,6 @@ function drawOcean() {
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
-        // Dibujar olas
         ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
         ctx.lineWidth = 3;
         
@@ -261,14 +263,12 @@ function drawOcean() {
             ctx.stroke();
         }
         
-        // Dibujar partículas
         ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
         particles.forEach(p => {
             ctx.fillRect(p.x, p.y, p.size, p.size);
             p.x += p.speedX;
             p.y += p.speedY;
             
-            // Reiniciar partículas
             if (p.y > canvas.height) {
                 p.y = -5;
                 p.x = Math.random() * canvas.width;
@@ -292,7 +292,6 @@ function showRiddle() {
     const riddle = riddles[currentRiddleIndex];
     const progress = ((currentRiddleIndex) / riddles.length) * 100;
     
-    // Actualizar barra de progreso
     document.getElementById('progressFill').style.width = progress + '%';
     document.getElementById('progressText').textContent = `Acertijo ${currentRiddleIndex + 1} de ${riddles.length}`;
     
@@ -370,7 +369,6 @@ function showScoreScreen() {
         time: totalTime
     };
     
-    // Guardar en localStorage
     saveProgress(gameState);
     
     showScreen('scoreScreen');
@@ -460,7 +458,7 @@ function generateQR() {
         text: window.location.href,
         width: 250,
         height: 250,
-        colorDark: '#E91E63',
+        colorDark: '#FF8C00',
         colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.H
     });
@@ -479,9 +477,8 @@ function checkSavedProgress() {
     const saved = localStorage.getItem('botella_progress');
     if (saved) {
         const data = JSON.parse(saved);
-        const elapsed = (Date.now() - data.timestamp) / (1000 * 60); // minutos
+        const elapsed = (Date.now() - data.timestamp) / (1000 * 60);
         
-        // Si pasó menos de 1 hora, mostrar opción de cargar
         if (elapsed < 60) {
             document.getElementById('loadModal').classList.add('active');
             document.getElementById('modalMessage').textContent = 
