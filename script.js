@@ -1,10 +1,17 @@
 // ===== CONFIGURACIÓN PERSONALIZADA =====
 const CONFIG = {
     userNames: {
+<<<<<<< HEAD
         user: "Bambi",
         recipient: "Mi amor"
     },
     relationshipStartDate: new Date('2026-07-01'),
+=======
+        user: "Bambi", // Tu nombre
+        recipient: "Mi amor" // Nombre de tu novia
+    },
+    relationshipStartDate: new Date('2026-07-01'), // Fecha que le pediste ser novia
+>>>>>>> cf065eeecef6856c3fca2ffbf1daf7f2edcc236c
     acertijosIntento: 3,
 };
 
@@ -13,31 +20,51 @@ const riddles = [
     {
         question: "¿En qué mes nos conocimos en el trabajo?",
         options: ["Febrero", "Marzo", "Abril", "Mayo"],
+<<<<<<< HEAD
         correct: 1,
+=======
+        correct: 1, // Marzo
+>>>>>>> cf065eeecef6856c3fca2ffbf1daf7f2edcc236c
         hint: "Es el tercer mes del año"
     },
     {
         question: "¿En qué mes empezamos a convivir más y fue nuestro primer beso?",
         options: ["Marzo", "Abril", "Mayo", "Junio"],
+<<<<<<< HEAD
         correct: 1,
+=======
+        correct: 1, // Abril - finales
+>>>>>>> cf065eeecef6856c3fca2ffbf1daf7f2edcc236c
         hint: "Fue después del mes de conocernos"
     },
     {
         question: "¿Cuál fue nuestro primer lugar especial fuera del trabajo?",
         options: ["Cafetería", "Cine", "Parque", "Bolos"],
+<<<<<<< HEAD
         correct: 0,
+=======
+        correct: 0, // Cafetería en mayo
+>>>>>>> cf065eeecef6856c3fca2ffbf1daf7f2edcc236c
         hint: "Un lugar para tomar algo y charlar"
     },
     {
         question: "¿En qué mes fuiste a mi casa por primera vez y empezamos a vernos más?",
         options: ["Marzo", "Abril", "Mayo", "Junio"],
+<<<<<<< HEAD
         correct: 2,
+=======
+        correct: 2, // Mayo
+>>>>>>> cf065eeecef6856c3fca2ffbf1daf7f2edcc236c
         hint: "Fue el quinto mes del año, mes especial con salidas al cine, parque y bolos"
     },
     {
         question: "¿Cuál es mi color favorito?",
         options: ["Azul", "Negro", "Naranja", "Blanco"],
+<<<<<<< HEAD
         correct: 2,
+=======
+        correct: 2, // Naranja
+>>>>>>> cf065eeecef6856c3fca2ffbf1daf7f2edcc236c
         hint: "Es un color cálido y vibrante que te caracteriza"
     }
 ];
@@ -45,6 +72,7 @@ const riddles = [
 // ===== MENSAJE SECRETO PERSONALIZADO =====
 const secretMessage = `Para ti, mi amor:
 
+<<<<<<< HEAD
 Marzo: Te conocí en el trabajo.
 Abril: Nuestro primer beso cambió mi vida.
 Mayo: Descubrimos lugares especiales juntos.
@@ -54,6 +82,39 @@ Junio: Decidimos estar siempre juntos.
 Cada día te amo más. Eres lo mejor que me pasó.
 
 Te amo,
+=======
+Aún no puedo creer que sea real todo lo que hemos vivido juntos en estos meses.
+Todo comenzó en marzo en el trabajo, cuando empezamos a hablarnos, 
+aunque fueron esas primeras semanas con conversaciones cortas pero significativas.
+
+Luego llegó abril, y todo cambió. Empezamos a convivir más, 
+a conocernos realmente, y a finales de ese mes... ese primer beso. 
+No lo olvidaré jamás. Fue el momento en que supe que eras especial, 
+que querías quedarte en mi vida.
+
+En mayo todo fue diferente. Fuimos a la cafetería, al cine, al parque, 
+a los bolos por mi cumpleaños. Luego fuiste a mi casa y sentí que las cosas 
+se estaban volviendo más serias, más reales, más hermosas.
+
+Junio fue el mes en que decidimos estar juntos en todos lados. 
+Yo iba a tu casa, tú venías a la mía. Empezamos a construir algo bonito, 
+a convivir más allá del trabajo. Esos días fueron los mejores.
+
+Y entonces llegó el 1 de julio... ese día en que me atreví a pedirte 
+ser mi novia oficialmente. Ese día en que decidí que no quería imaginar 
+mi vida sin ti al lado.
+
+Han pasado solo unos días como novios, pero siento que te conozco desde siempre.
+Tu risa, tu forma de ser, la manera en que me miras, tu apoyo incondicional...
+Todo en ti me enamora cada día más.
+
+Eres mi persona favorita en el mundo. 
+Eres lo mejor que me ha pasado.
+
+Te amo con todo mi corazón.
+
+Con todo mi amor,
+>>>>>>> cf065eeecef6856c3fca2ffbf1daf7f2edcc236c
 Bambi 💕`;
 
 // ===== VARIABLES GLOBALES =====
@@ -508,4 +569,8 @@ window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> cf065eeecef6856c3fca2ffbf1daf7f2edcc236c
